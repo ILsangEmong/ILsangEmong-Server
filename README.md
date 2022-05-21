@@ -20,8 +20,8 @@
 | :-----: | :---: | :---: |
 | 팀 생성 | [POST] /team | `주효식` | 
 | 팀 참여 | [GET] /team/:teamId | `김소현` | 
-| 한 줄 작성 | [PUT] /comment/:teamId | `김소현` | 
-| 결과 확인 | [POST] /comment/:teamId | `주효식` |
+| 한 줄 작성 | [PUT] /comment | `김소현` | 
+| 결과 확인 | [GET] /comment/:teamId | `주효식` |
 
 ### 📏 Code Convention
 
