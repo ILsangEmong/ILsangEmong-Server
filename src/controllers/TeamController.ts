@@ -5,6 +5,7 @@ import message from '../modules/responseMessage';
 import statusCode from '../modules/statusCode';
 import { TeamCreateDto } from '../interfaces/team/TeamCreateDto';
 import { TeamService } from '../services';
+import { InviteCodeDto } from '../interfaces/team/InviteCodeDto';
 
 /**
  * @route POST /team
@@ -48,7 +49,7 @@ const createTeam = async (req: Request, res: Response) => {
  * @desc Check team is exist
  * @access Public
  */
-const isExistTeam = async (req: Request, res: Response) => {
+const checkTeam = async (req: Request, res: Response) => {
     const { inviteCode } = req.params;
     if (!inviteCode) {
         res.status(statusCode.BAD_REQUEST).send(
@@ -57,15 +58,18 @@ const isExistTeam = async (req: Request, res: Response) => {
     }
 
     try {
-        const isExist = await TeamService.isExistTeam(inviteCode);
-        console.log(isExist);
+        const inviteCodeDto: InviteCodeDto = {
+            inviteCode: inviteCode,
+        };
+        const isExist = await TeamService.checkTeam(inviteCodeDto);
+
         if (!isExist) {
-            res.status(statusCode.NOT_FOUND).send(
-                util.fail(statusCode.NOT_FOUND, message.NOT_EXIST_TEAM)
-            );
+            return res
+                .status(statusCode.NOT_FOUND)
+                .send(util.fail(statusCode.NOT_FOUND, message.NO_TEAM));
         }
         res.status(statusCode.OK).send(
-            util.success(statusCode.OK, message.IS_EXIST_TEAM, isExist)
+            util.success(statusCode.OK, message.READ_TEAM_SUCCESS, isExist)
         );
     } catch (error) {
         console.log(error);
@@ -80,5 +84,5 @@ const isExistTeam = async (req: Request, res: Response) => {
 
 export default {
     createTeam,
-    isExistTeam,
+    checkTeam,
 };
