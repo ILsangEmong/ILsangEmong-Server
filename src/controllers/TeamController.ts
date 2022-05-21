@@ -5,7 +5,7 @@ import message from '../modules/responseMessage';
 import statusCode from '../modules/statusCode';
 import { TeamCreateDto } from '../interfaces/team/TeamCreateDto';
 import { TeamService } from '../services';
-import { InviteCodeDto } from '../interfaces/team/InviteCodeDto';
+import { InviteCodeDto } from '../interfaces/common/InviteCodeDto';
 
 /**
  * @route POST /team
