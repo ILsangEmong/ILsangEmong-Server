@@ -1,4 +1,5 @@
 // controller index file
 
 import TeamController from './TeamController';
-export { TeamController };
+import CommentController from './CommentController';
+export { TeamController, CommentController };
