@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import CommentController from '../controllers/CommentController';
-import { body } from 'express-validator/check';
+import { body } from 'express-validator';
 
 const router: Router = Router();
 
