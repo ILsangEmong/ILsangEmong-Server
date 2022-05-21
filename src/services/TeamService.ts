@@ -24,6 +24,18 @@ const createTeam = async (
     }
 };
 
+const checkTeam = async (
+    inviteCodeDto: InviteCodeDto
+): Promise<Boolean | null> => {
+    const team = Team.find({ inviteCode: inviteCodeDto.inviteCode });
+
+    if ((await team).length == 0) {
+        return null;
+    }
+    return true;
+};
+
 export default {
     createTeam,
+    checkTeam,
 };
