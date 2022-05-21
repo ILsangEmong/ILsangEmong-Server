@@ -39,10 +39,10 @@ const getComments = async (
         const team = await Team.findOne({
             inviteCode: inviteCodeDto.inviteCode,
         });
-        const comments: CommentGetDto = {
+        const commentGetDto: CommentGetDto = {
             comments: team?.comments,
         };
-        return comments;
+        return commentGetDto;
     } catch (error) {
         console.log(error);
         throw error;
