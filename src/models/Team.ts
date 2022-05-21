@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { TeamInfo } from '../interfaces/team/teamInfo';
+import { TeamInfo } from '../interfaces/team/TeamInfo';
 
 const TeamSchema = new mongoose.Schema({
     name: {
