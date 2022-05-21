@@ -6,6 +6,7 @@ import message from '../modules/responseMessage';
 import statusCode from '../modules/statusCode';
 import util from '../modules/util';
 import CommentService from '../services/CommentService';
+import { InviteCodeDto } from '../interfaces/common/InviteCodeDto';
 
 /**
  *  @route PUT /comment
@@ -47,6 +48,38 @@ const updateComment = async (req: Request, res: Response) => {
     }
 };
 
+/**
+ *  @route GET /comment/:inviteCode
+ *  @desc Get result comment
+ *  @access Public
+ */
+const getComments = async (req: Request, res: Response) => {
+    const { inviteCode } = req.params;
+    const inviteCodeDto: InviteCodeDto = {
+        inviteCode: inviteCode,
+    };
+
+    try {
+        const comments = await CommentService.getComments(inviteCodeDto);
+        res.status(statusCode.OK).send(
+            util.success(
+                statusCode.OK,
+                message.READ_RELAY_CONTENT_SUCCESS,
+                comments.comments
+            )
+        );
+    } catch (error) {
+        console.log(error);
+        res.status(statusCode.INTERNAL_SERVER_ERROR).send(
+            util.fail(
+                statusCode.INTERNAL_SERVER_ERROR,
+                message.INTERNAL_SERVER_ERROR
+            )
+        );
+    }
+};
+
 export default {
     updateComment,
+    getComments,
 };

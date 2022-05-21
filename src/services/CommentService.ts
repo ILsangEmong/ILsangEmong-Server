@@ -1,4 +1,6 @@
+import { CommentGetDto } from '../interfaces/comment/CommentGetDto';
 import { CommentUpdateDto } from '../interfaces/comment/CommentUpdateDto';
+import { InviteCodeDto } from '../interfaces/common/InviteCodeDto';
 import Team from '../models/Team';
 
 const updateComment = async (
@@ -30,6 +32,24 @@ const updateComment = async (
     }
 };
 
+const getComments = async (
+    inviteCodeDto: InviteCodeDto
+): Promise<CommentGetDto> => {
+    try {
+        const team = await Team.findOne({
+            inviteCode: inviteCodeDto.inviteCode,
+        });
+        const comments: CommentGetDto = {
+            comments: team?.comments,
+        };
+        return comments;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
+
 export default {
     updateComment,
+    getComments,
 };

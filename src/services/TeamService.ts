@@ -1,4 +1,4 @@
-import { InviteCodeDto } from '../interfaces/team/InviteCodeDto';
+import { InviteCodeDto } from '../interfaces/common/InviteCodeDto';
 import { TeamCreateDto } from '../interfaces/team/TeamCreateDto';
 import Team from '../models/Team';
 import { randomString } from '../modules/random';

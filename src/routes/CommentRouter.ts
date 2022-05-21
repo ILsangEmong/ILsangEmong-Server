@@ -9,5 +9,6 @@ router.put(
     [body('inviteCode').notEmpty(), body('comment').notEmpty()],
     CommentController.updateComment
 );
+router.get('/:inviteCode', CommentController.getComments);
 
 export default router;
