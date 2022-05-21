@@ -1,2 +1,4 @@
 //service index file
-export {};
+
+import TeamService from './TeamService';
+export { TeamService };

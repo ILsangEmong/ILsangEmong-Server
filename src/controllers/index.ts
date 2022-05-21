@@ -1,4 +1,4 @@
 // controller index file
-export {
-    
-}
+
+import TeamController from './TeamController';
+export { TeamController };
