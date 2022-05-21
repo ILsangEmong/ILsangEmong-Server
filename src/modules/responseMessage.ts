@@ -7,9 +7,9 @@ const message = {
 
     // 팀
     CREATE_TEAM_SUCCESS: '팀 생성 성공',
-    IS_EXIST_TEAM: '유효한 참여코드 입니다.',
+    READ_TEAM_SUCCESS: '유효한 참여코드 입니다.',
     NULL_INVITE_CODE: '참여코드가 없습니다.',
-    NOT_EXIST_TEAM: '해당하는 팀이 없습니다.',
+    NO_TEAM: '해당하는 팀이 없습니다.',
 
     // 코멘트 추가
     UPDATE_COMMENT_SUCCESS: '코멘트가 저장되었습니다',
