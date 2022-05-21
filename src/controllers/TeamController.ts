@@ -18,10 +18,10 @@ const createTeam = async (req: Request, res: Response) => {
             .status(statusCode.BAD_REQUEST)
             .send(util.fail(statusCode.BAD_REQUEST, message.BAD_REQUEST));
     }
-    const TeamCreateDto: TeamCreateDto = req.body;
+    const teamCreateDto: TeamCreateDto = req.body;
 
     try {
-        const inviteCode = await TeamService.createTeam(TeamCreateDto);
+        const inviteCode = await TeamService.createTeam(teamCreateDto);
 
         res.status(statusCode.CREATED).send(
             util.success(
