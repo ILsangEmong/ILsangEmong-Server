@@ -162,7 +162,6 @@ feature 번호는 issue 번호에 맞게 생성 / name에는 자기 이름
 | [REFACTOR] |                   전면 수정이 있을 때 사용                   |
 
 ### 📁 Project Foldering
-
 ```
 🗃️ 3-Layer Architecture 적용
 
@@ -176,3 +175,52 @@ feature 번호는 issue 번호에 맞게 생성 / name에는 자기 이름
 |_ 📁 routess _
 |_ 📁 services _
 ```
+
+### 💾 Collection
+```
+_id: string  
+name: string  
+inviteCode: string  
+comments: string[]  
+startTime: Date  
+endTime: Date  
+```
+
+### 📦 Package.json
+``` json
+{
+  "name": "node-typescript-init",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc && node dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^17.0.25",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.3.1",
+    "prettier": "^2.6.2"
+  }
+}
+```
+
+### 👷‍♂️ Server Architecture
+- 개발 환경 : Typescript, Node  
+- 데이터베이스 : MongoDB  
+- 서버 환경 : AWS EC2, PM2
+<img src=https://user-images.githubusercontent.com/21357387/169669832-5949961d-702c-4655-90bb-6ebdddaad6fe.png>
