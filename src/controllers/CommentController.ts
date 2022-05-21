@@ -25,7 +25,14 @@ const updateComment = async (req: Request, res: Response) => {
     const commentUpdateDto: CommentUpdateDto = req.body;
 
     try {
-        await CommentService.updateComment(commentUpdateDto);
+        const data = await CommentService.updateComment(commentUpdateDto);
+
+        if (!data) {
+            console.log('not team');
+            return res
+                .status(statusCode.NOT_FOUND)
+                .send(util.fail(statusCode.NOT_FOUND, message.NOT_EXIST_TEAM));
+        }
 
         res.status(statusCode.OK).send(
             util.success(statusCode.OK, message.UPDATE_COMMENT_SUCCESS)
