@@ -177,13 +177,29 @@ feature 번호는 issue 번호에 맞게 생성 / name에는 자기 이름
 ```
 
 ### 💾 Collection
-```
-_id: string  
-name: string  
-inviteCode: string  
-comments: string[]  
-startTime: Date  
-endTime: Date  
+``` typescript
+const TeamSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    inviteCode: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    comments: {
+        type: [String],
+    },
+    startTime: {
+        type: Date,
+        required: true,
+    },
+    endTime: {
+        type: Date,
+        required: true,
+    },
+});
 ```
 
 ### 📦 Package.json
